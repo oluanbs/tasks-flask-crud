@@ -71,15 +71,12 @@ def delete_task(id):
     for t in tasks:
         if t.id == id:
             task = t
+            break # Dica de Perfomance quando é um elemento unico de procura.
     print(task)
     if task == None:
         return jsonify({"message": "Não foi possível encontrar a atividade"}), 404
     tasks.remove(task)
     return jsonify({"message": "Tarefa deletada com sucesso"})       
-
-
-
-
 
 ## Rota de Teste
 @app.route('/user/<int:user_id>')
